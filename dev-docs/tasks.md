@@ -41,9 +41,12 @@
 - [ ] Speaker labels in output
 - [ ] Test with multi-speaker audio
 
-### Streaming
-- [ ] Research real-time audio capture
-- [ ] Implement streaming transcription
+### Streaming (priority)
+- [ ] Step A: Mic capture with PyAudio
+- [ ] Step A: Real-time transcription in chunks
+- [ ] Step A: Test latency and accuracy
+- [ ] Step B: System audio capture (virtual audio driver)
+- [ ] Step B: Capture Zoom/Teams audio
 - [ ] Measure and optimise latency
 
 ### Export
