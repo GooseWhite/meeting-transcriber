@@ -1,81 +1,82 @@
 # Meeting Transcriber - Tasks
 
-## Fase 1: Lokale MVP
+## Phase 1: Local MVP
 
-### Setup & Core
-- [x] Test faster-whisper installatie op Windows
-- [x] Valideer GPU detectie (CUDA) - GPU niet beschikbaar, CPU fallback werkt
-- [x] Test met sample audio files (NL) - Custom GPTs 01.mp4 succesvol
-- [x] Test met EN audio - NEW Beginning Video.mp4 succesvol (95% confidence)
-- [ ] Benchmark: snelheid vs audio lengte
+### Setup and Core
+- [x] Test faster-whisper installation on Windows
+- [x] Validate GPU detection (CUDA) - GPU not available, CPU fallback works
+- [x] Test with sample audio files (NL) - Custom GPTs 01.mp4 successful
+- [x] Test with EN audio - NEW Beginning Video.mp4 successful (95% confidence)
+- [ ] Benchmark: speed vs audio length
 
 ### Features
-- [x] Basis CLI werkt
+- [x] Basic CLI works
 - [x] JSON output correct
 - [x] TXT export
 - [x] SRT subtitle export
-- [x] Language auto-detection werkt (100% confidence NL)
+- [x] Language auto-detection works (100% confidence NL)
 
 ### Quality
-- [ ] Error handling voor corrupte audio
-- [x] Duidelijke error messages
-- [x] Progress indicator tijdens processing
+- [ ] Error handling for corrupt audio
+- [x] Clear error messages
+- [x] Progress indicator during processing
 
 ### Documentation
-- [x] README setup instructies
-- [ ] Example output file toevoegen
+- [x] README setup instructions
+- [x] GitHub repository created
+- [ ] Add example output file
 
 ### Known Issues (24-12-2024)
-- Rich library geeft encoding errors op Windows → opgelost met plain print()
-- GPU mode vereist CUDA DLLs die niet aanwezig zijn → CPU mode als default
-- Base model heeft fouten bij specifieke termen (ChatGPT → JetGPT, Zwitsers zakmes → Zwitserszak)
-- Overweeg `small` of `medium` model voor betere accuracy
+- Rich library gives encoding errors on Windows - solved with plain print()
+- GPU mode requires CUDA DLLs that are not present - CPU mode as default
+- Base model has errors with specific terms (ChatGPT to JetGPT)
+- Consider small or medium model for better accuracy
 
 ---
 
-## Fase 2: Enhanced Features
+## Phase 2: Enhanced Features
 
 ### Speaker Diarization
-- [ ] pyannote-audio integreren
+- [ ] Integrate pyannote-audio
 - [ ] Speaker labels in output
-- [ ] Test met multi-speaker audio
+- [ ] Test with multi-speaker audio
 
 ### Streaming
-- [ ] Real-time audio capture onderzoeken
-- [ ] Streaming transcriptie implementeren
-- [ ] Latency meten en optimaliseren
+- [ ] Research real-time audio capture
+- [ ] Implement streaming transcription
+- [ ] Measure and optimise latency
 
 ### Export
 - [ ] DOCX export
 - [ ] VTT subtitle format
 - [ ] Configurable timestamp format
 
-### Containerization
-- [ ] Dockerfile maken
-- [ ] Docker Compose voor development
-- [ ] GPU passthrough testen
+### Containerisation
+- [ ] Create Dockerfile
+- [ ] Docker Compose for development
+- [ ] Test GPU passthrough
 
 ---
 
-## Fase 3: Meeting Intelligence
+## Phase 3: Meeting Intelligence
 
 ### AI Features
-- [ ] LLM integratie voor samenvattingen
-- [ ] Action item extractie prompt
-- [ ] Key decisions herkenning
+- [ ] LLM integration for summaries
+- [ ] Action item extraction prompt
+- [ ] Key decisions recognition
 
 ### Storage
-- [ ] SQLite voor lokale opslag
-- [ ] Search functionaliteit
+- [ ] SQLite for local storage
+- [ ] Search functionality
 - [ ] Meeting metadata
 
 ---
 
-## Fase 4: Cloud Deployment
+## Phase 4: Cloud Deployment
 
 ### Infrastructure
 - [ ] Nebius account setup
-- [ ] GPU instance configuratie
+- [ ] GPU instance configuration
 - [ ] Terraform/Pulumi scripts
 
 ### API
@@ -90,6 +91,6 @@
 - [ ] Job status tracking
 
 ### Monitoring
-- [ ] Logging naar centrale plek
+- [ ] Centralised logging
 - [ ] Performance metrics
 - [ ] Error alerting

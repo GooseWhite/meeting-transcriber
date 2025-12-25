@@ -1,66 +1,66 @@
 # Meeting Transcriber
 
-Privacy-first meeting transcriptie tool die gesproken audio omzet naar doorzoekbare tekst.
-Gebouwd voor bedrijven die controle willen over hun data.
+Privacy-first meeting transcription tool that converts spoken audio to searchable text.
+Built for organisations that want full control over their data.
 
-## Visie
+## Vision
 
-Een complete meeting intelligence oplossing die:
-- Live meetings transcribeert in real-time
-- Werkt in 50+ talen met automatische detectie
-- Sprekers herkent en labelt (speaker diarization)
-- Samenvattingen en action items genereert
-- Volledig privacy-compliant draait (geen externe API calls)
+A complete meeting intelligence solution that:
+- Transcribes live meetings in real-time
+- Works in 50+ languages with automatic detection
+- Recognises and labels speakers (speaker diarization)
+- Generates summaries and action items
+- Runs fully privacy-compliant (no external API calls)
 
 ## Roadmap
 
-### Fase 1: Lokale Transcriptie Engine (current)
-- [x] Project structuur
-- [ ] Faster-whisper integratie
-- [ ] Audio file transcriptie (batch)
-- [ ] Multi-language support
-- [ ] JSON output met timestamps
-- [ ] CLI interface
+### Phase 1: Local Transcription Engine (current)
+- [x] Project structure
+- [x] Faster-whisper integration
+- [x] Audio file transcription (batch)
+- [x] Multi-language support
+- [x] JSON output with timestamps
+- [x] CLI interface
 
-### Fase 2: Enhanced Features
-- [ ] Speaker diarization (wie zegt wat)
-- [ ] Real-time streaming transcriptie
-- [ ] Automatische taaldetectie per segment
-- [ ] Export formaten (SRT, VTT, TXT, DOCX)
+### Phase 2: Enhanced Features
+- [ ] Speaker diarization (who says what)
+- [ ] Real-time streaming transcription
+- [ ] Automatic language detection per segment
+- [ ] Export formats (SRT, VTT, TXT, DOCX)
 
-### Fase 3: Meeting Intelligence
-- [ ] AI-powered samenvattingen
-- [ ] Action item extractie
-- [ ] Zoeken in transcripts
+### Phase 3: Meeting Intelligence
+- [ ] AI-powered summaries
+- [ ] Action item extraction
+- [ ] Transcript search
 - [ ] Meeting analytics dashboard
 
-### Fase 4: Schaalbare Deployment
-- [ ] Docker containerisatie
+### Phase 4: Scalable Deployment
+- [ ] Docker containerisation
 - [ ] GitHub CI/CD pipeline
 - [ ] Nebius GPU cloud deployment
-- [ ] REST API voor integraties
-- [ ] Multi-user support met queue systeem
+- [ ] REST API for integrations
+- [ ] Multi-user support with queue system
 
 ## Tech Stack
 
-| Component | Technologie | Waarom |
-|-----------|-------------|--------|
-| Speech-to-Text | faster-whisper | Snelste lokale Whisper implementatie |
+| Component | Technology | Why |
+|-----------|------------|-----|
+| Speech-to-Text | faster-whisper | Fastest local Whisper implementation |
 | Speaker Diarization | pyannote-audio | State-of-the-art speaker detection |
-| Backend | Python / FastAPI | Simpel, async, goed ecosysteem |
-| Queue | Redis + Celery | Schaalbare job processing |
-| Storage | SQLite → PostgreSQL | Lokaal simpel, cloud schaalbaar |
-| Deployment | Docker + Nebius | GPU cloud met EU data residency |
+| Backend | Python / FastAPI | Simple, async, good ecosystem |
+| Queue | Redis + Celery | Scalable job processing |
+| Storage | SQLite - PostgreSQL | Local simple, cloud scalable |
+| Deployment | Docker + Nebius | GPU cloud with EU data residency |
 
-## Vereisten
+## Requirements
 
 ### Minimum (batch processing)
 - Python 3.10+
 - 8GB RAM
-- Elk modern systeem (Windows/Mac/Linux)
+- Any modern system (Windows/Mac/Linux)
 
-### Aanbevolen (real-time)
-- NVIDIA GPU met 4GB+ VRAM
+### Recommended (real-time)
+- NVIDIA GPU with 4GB+ VRAM
 - CUDA 11.8+
 - 16GB RAM
 
@@ -68,7 +68,7 @@ Een complete meeting intelligence oplossing die:
 
 ```bash
 # Clone repository
-git clone https://github.com/stapje-slimmer/meeting-transcriber.git
+git clone https://github.com/GooseWhite/meeting-transcriber.git
 cd meeting-transcriber
 
 # Setup environment
@@ -76,11 +76,11 @@ python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# Transcribeer een audio file
+# Transcribe an audio file
 python transcribe.py path/to/meeting.mp3
 ```
 
-## Output Voorbeeld
+## Output Example
 
 ```json
 {
@@ -95,7 +95,7 @@ python transcribe.py path/to/meeting.mp3
     {
       "start": 0.0,
       "end": 4.2,
-      "text": "Goedemorgen allemaal, laten we beginnen met de agenda.",
+      "text": "Good morning everyone, let us start with the agenda.",
       "speaker": "Speaker 1",
       "confidence": 0.92
     },
@@ -104,25 +104,24 @@ python transcribe.py path/to/meeting.mp3
       "end": 8.1,
       "text": "Thanks for joining. First item is the Q4 review.",
       "speaker": "Speaker 2",
-      "confidence": 0.89,
-      "language": "en"
+      "confidence": 0.89
     }
   ]
 }
 ```
 
-## Privacy & Security
+## Privacy and Security
 
-- **Zero external calls**: Alle processing gebeurt lokaal of op eigen infrastructure
-- **No data retention**: Audio wordt niet opgeslagen na processing (tenzij expliciet gewenst)
-- **EU data residency**: Cloud deployment via Nebius met EU datacenters
-- **Audit logging**: Alle acties worden gelogd voor compliance
+- **Zero external calls**: All processing happens locally or on your own infrastructure
+- **No data retention**: Audio is not stored after processing (unless explicitly requested)
+- **EU data residency**: Cloud deployment via Nebius with EU datacenters
+- **Audit logging**: All actions are logged for compliance
 
-## Licentie
+## Licence
 
-MIT License - Zie [LICENSE](LICENSE)
+MIT License - See [LICENSE](LICENSE)
 
 ## Contact
 
-Gebouwd door [Stapje Slimmer](https://stapjeslimmer.nl)
-Vragen? guuswitjes@gmail.com
+Built by [Stapje Slimmer](https://stapjeslimmer.nl)
+Questions? guuswitjes@gmail.com

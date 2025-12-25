@@ -1,110 +1,113 @@
 # Meeting Transcriber - Project Context
 
-## Doel
-Privacy-first meeting transcriptie tool voor bedrijven die controle willen over hun gevoelige gesprekken.
+## Goal
+Privacy-first meeting transcription tool for organisations that want control over their sensitive conversations.
 
-## Waarom dit project
-- Bestaande tools (Otter, Fireflies) sturen audio naar externe servers
-- Bedrijven met gevoelige informatie willen dit niet
-- Lokale/eigen-server oplossing geeft volledige controle
+## Why This Project
+- Existing tools (Otter, Fireflies) send audio to external servers
+- Organisations with sensitive information do not want this
+- Local/self-hosted solution gives full control
 
 ## Target Users
-- Bedrijven met privacy-gevoelige meetings (legal, HR, finance)
-- Organisaties met compliance eisen (GDPR, healthcare)
-- Teams die meeting intelligence willen zonder vendor lock-in
+- Organisations with privacy-sensitive meetings (legal, HR, finance)
+- Organisations with compliance requirements (GDPR, healthcare)
+- Teams that want meeting intelligence without vendor lock-in
 
-## Technische Keuzes
+## Technical Decisions
 
-### Waarom faster-whisper
-- 4x sneller dan originele OpenAI Whisper
-- Zelfde kwaliteit, minder resources
-- Actief onderhouden, goede community
-- Makkelijke Python integratie
+### Why faster-whisper
+- 4x faster than original OpenAI Whisper
+- Same quality, fewer resources
+- Actively maintained, good community
+- Easy Python integration
 
-### Waarom lokaal eerst
-- Bewijst privacy-first concept
-- Makkelijker te debuggen
-- Geen cloud kosten tijdens development
-- Later schalen naar Nebius is simpele stap
+### Why Local First
+- Proves privacy-first concept
+- Easier to debug
+- No cloud costs during development
+- Scaling to Nebius later is a simple step
 
-### Waarom Nebius voor cloud
+### Why Nebius for Cloud
 - EU datacenters (GDPR compliant)
-- Goede GPU pricing
-- Minder vendor lock-in dan AWS/Azure
-- Past bij privacy-first positionering
+- Good GPU pricing
+- Less vendor lock-in than AWS/Azure
+- Fits privacy-first positioning
 
-## Ontwikkel Fases
+## Development Phases
 
-### Fase 1 (MVP)
-Focus: Werkende transcriptie van audio files
+### Phase 1 (MVP)
+Focus: Working transcription of audio files
 - Input: mp3/wav file
-- Output: JSON met timestamps
+- Output: JSON with timestamps
 - CLI interface
 - Multi-language support
 
-### Fase 2 (Enhanced)
-Focus: Productie-waardige features
+### Phase 2 (Enhanced)
+Focus: Production-ready features
 - Speaker diarization
 - Real-time streaming
-- Meerdere export formaten
+- Multiple export formats
 - Docker container
 
-### Fase 3 (Intelligence)
-Focus: Waarde toevoegen bovenop transcriptie
-- AI samenvattingen
-- Action item extractie
-- Doorzoekbaar archief
+### Phase 3 (Intelligence)
+Focus: Adding value on top of transcription
+- AI summaries
+- Action item extraction
+- Searchable archive
 
-### Fase 4 (Scale)
+### Phase 4 (Scale)
 Focus: Multi-user, cloud deployment
 - REST API
 - Nebius GPU instances
-- Queue systeem
+- Queue system
 - Dashboard
 
-## Open Vragen
-- [ ] Welk Whisper model size als default? (base vs small vs medium)
-- [ ] Speaker diarization: pyannote-audio of alternatief?
-- [ ] Hoe audio input bij live meetings? (system audio capture)
-- [ ] Pricing model voor hosted versie?
+## Open Questions
+- [ ] Which Whisper model size as default? (base vs small vs medium)
+- [ ] Speaker diarization: pyannote-audio or alternative?
+- [ ] How to capture audio input for live meetings? (system audio capture)
+- [ ] Pricing model for hosted version?
 
 ## Development Log
 
 ### 24-12-2024 - MVP Proof of Concept
-**Status:** Werkend op Windows met CPU
+**Status:** Working on Windows with CPU
 
-**Wat werkt:**
-- faster-whisper installatie via pip
-- FFmpeg geïnstalleerd via winget (Gyan.FFmpeg)
-- Video transcriptie (mp4 → json)
-- Nederlandse taaldetectie (100% confidence)
-- CLI met JSON/TXT/SRT output formats
+**What works:**
+- faster-whisper installation via pip
+- FFmpeg installed via winget (Gyan.FFmpeg)
+- Video transcription (mp4 to json)
+- Dutch language detection (100% confidence)
+- CLI with JSON/TXT/SRT output formats
 
-**Eerste test resultaat:**
+**First test result:**
 - Input: Custom GPTs 01.mp4 (5 min training video)
-- Processing: ~3-4 minuten op CPU
-- Output: 78 segmenten, correct gestructureerde JSON
-- Kwaliteit: Redelijk, maar specifieke termen worden soms verkeerd (ChatGPT → JetGPT)
+- Processing: ~3-4 minutes on CPU
+- Output: 78 segments, correctly structured JSON
+- Quality: Decent, but specific terms sometimes wrong (ChatGPT to JetGPT)
 
-**Geleerde lessen:**
-- Rich library heeft encoding issues op Windows terminal → plain print() gebruiken
-- GPU mode werkt niet zonder volledige CUDA toolkit → CPU als stabiele default
-- Base model is snel maar mist accuracy voor jargon → test small/medium later
+**Lessons learned:**
+- Rich library has encoding issues on Windows terminal - use plain print()
+- GPU mode does not work without full CUDA toolkit - CPU mode as stable default
+- Base model is fast but lacks accuracy for jargon - test small/medium later
 
-**Volgende sessie:**
-- Test met Engels audio
-- Probeer `small` model voor betere kwaliteit
-- GitHub repo initialiseren
+### 25-12-2024 - English + Export Formats Testing
+**Status:** All Phase 1 features validated
 
-### 25-12-2024 - Engels + export formats testen
-**Status:** Alle Fase 1 features gevalideerd
+**Test results:**
+- EN transcription: NEW Beginning Video.mp4 (2 min, 95% confidence, 24 segments)
+- TXT export: Works correctly (plain text)
+- SRT export: Works correctly (subtitle format with timestamps)
 
-**Test resultaten:**
-- EN transcriptie: NEW Beginning Video.mp4 (2 min, 95% confidence, 24 segmenten)
-- TXT export: Werkt correct (platte tekst)
-- SRT export: Werkt correct (subtitle formaat met timestamps)
+**Conclusion:** MVP is feature-complete for Phase 1
 
-**Conclusie:** MVP is feature-complete voor Fase 1
+### 25-12-2024 - GitHub Repository
+**Status:** Repository created and pushed
 
-**Volgende sessie:**
-- GitHub repo initialiseren
+- GitHub CLI installed
+- Initial commit with all project files
+- Public repo: https://github.com/GooseWhite/meeting-transcriber
+- Documentation converted to English
+
+**Next steps:**
+- Phase 2: Speaker diarization
